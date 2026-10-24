@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    overscroll-behavior-y: contain;
+  }
+
+  input, textarea, select {
+    user-select: auto;
+  }
+}
+
+/* Hide scrollbars for slick mobile look while keeping scroll capability */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 118, 110, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 118, 110, 0.4);
+}
+
+/* 3D Flip Animations for Logo Entrance */
+@keyframes logoFlip3D {
+  0% {
+    transform: perspective(600px) rotateY(-180deg) scale(0.65);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(600px) rotateY(18deg) scale(1.06);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(600px) rotateY(-6deg) scale(0.98);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(600px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes logoEmblemFlip {
+  0% {
+    transform: perspective(500px) rotateY(-360deg) scale(0.8);
+    opacity: 0.3;
+  }
+  60% {
+    transform: perspective(500px) rotateY(25deg) scale(1.08);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(500px) rotateY(-8deg) scale(0.98);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(500px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-logo-flip {
+  animation: logoFlip3D 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.animate-emblem-flip {
+  animation: logoEmblemFlip 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.perspective-500 {
+  perspective: 500px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+
+/* Real Polished 3D Golden Button with Gleaming Shine */
+@keyframes goldShineSweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  38% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0.95;
+  }
+  39%, 100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-gold-shine {
+  animation: goldShineSweep 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.btn-golden-3d {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #FFFBE5 0%,
+    #FFE98A 12%,
+    #FBBF24 35%,
+    #F59E0B 52%,
+    #D97706 72%,
+    #B45309 88%,
+    #78350F 100%
+  );
+  color: #FFFFFF;
+  font-weight: 800;
+  text-shadow: 
+    0 1.5px 2px rgba(0, 0, 0, 0.9),
+    0 0 1px #000000;
+  border: 1.5px solid #000000;
+  box-shadow: 
+    0 3.5px 0 #000000,
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(80, 30, 5, 0.5);
+  transition: transform 0.08s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.08s cubic-bezier(0.2, 0.8, 0.4, 1), filter 0.15s ease;
+  transform: translateY(0);
+}
+
+.btn-golden-3d:hover {
+  background: linear-gradient(
+    180deg,
+    #FFFFF0 0%,
+    #FFF0A5 12%,
+    #FCD34D 35%,
+    #F59E0B 52%,
+    #EA580C 72%,
+    #B45309 88%,
+    #78350F 100%
+  );
+  border-color: #000000;
+  filter: brightness(1.06);
+}
+
+.btn-golden-3d:active {
+  transform: translateY(3px);
+  border-color: #000000;
+  box-shadow: 
+    0 0.5px 0 #000000,
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7),
+    inset 0 -1px 2px rgba(80, 30, 5, 0.4);
+}
+
+.btn-golden-3d-sm {
+  border: 1.5px solid #000000;
+  box-shadow: 
+    0 2.5px 0 #000000,
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1.5px 2px rgba(80, 30, 5, 0.5);
+}
+
+.btn-golden-3d-sm:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 0.5px 0 #000000,
+    0 1.5px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
